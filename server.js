@@ -27,4 +27,9 @@ const apollo = new ApolloServer(
     }
 );
 
-server.listen().then(() => console.log("Server is running on http://localhost:4000/"));
+const httpServer = http.createServer(app);
+apollo.installSubscriptionHandlers(httpServer);
+
+httpServer.listen(PORT, () => {
+    console.log('Server is running on http://localhost: ${PORT}');
+})
