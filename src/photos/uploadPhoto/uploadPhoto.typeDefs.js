@@ -1,4 +1,7 @@
+import { gql } from "apollo-server";
+
 export default gql`
-    type Query {
-        seePhoto(id: String): Photo
-    }`
+  type Mutation {
+    uploadPhoto(file: Upload!, caption: String): Photo
+  }
+`;
